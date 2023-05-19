@@ -6,10 +6,11 @@ import {
   iLeagues,
   iSeasons,
   iSquad,
+  iStatistc,
   iTeam,
   iTeams,
 } from "../interfaces";
-import { Api } from "../services/api";
+import { Api, Params } from "../services/api";
 import { Options } from "../services/api";
 export interface iUserContext {
   token: string;
@@ -58,6 +59,11 @@ export interface iUserContext {
   setShowTeam: React.Dispatch<React.SetStateAction<boolean>>;
   showPlayer: boolean;
   setShowPlayer: React.Dispatch<React.SetStateAction<boolean>>;
+  showScore: boolean;
+  setShowScore: React.Dispatch<React.SetStateAction<boolean>>;
+  GetStatistcs: () => void;
+  statistics: iStatistc;
+  setStatistics: React.Dispatch<React.SetStateAction<iStatistc>>;
 }
 
 export const UserContext = createContext<iUserContext>({} as iUserContext);
@@ -84,6 +90,8 @@ export const UserProvider = ({ children }: iChildren) => {
   const [showTeams, setShowTeams] = useState<boolean>(false);
   const [showTeam, setShowTeam] = useState<boolean>(false);
   const [showPlayer, setShowPlayer] = useState<boolean>(false);
+  const [showScore, setShowScore] = useState<boolean>(false);
+  const [statistics, setStatistics] = useState<iStatistc>({} as iStatistc);
 
   const HandleLogin = async () => {
     await Api.get(`/countries`, Options)
@@ -170,6 +178,21 @@ export const UserProvider = ({ children }: iChildren) => {
       .catch((err) => console.error(err));
   };
 
+  const GetStatistcs = async () => {
+    const { league, season, team } = Params;
+    await Api.get(
+      `/teams/statistics?season=${season}&team=${team}&league=${league}`,
+      Options
+    )
+      .then((response) => {
+        console.log(response.data.response);
+        setShowPlayer(false);
+        setShowScore(true);
+        setStatistics(response.data.response);
+      })
+      .catch((err) => console.error(err));
+  };
+
   return (
     <UserContext.Provider
       value={{
@@ -219,6 +242,11 @@ export const UserProvider = ({ children }: iChildren) => {
         setShowTeam,
         setShowPlayer,
         showPlayer,
+        showScore,
+        setShowScore,
+        GetStatistcs,
+        statistics,
+        setStatistics,
       }}
     >
       {children}

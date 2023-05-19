@@ -6,9 +6,9 @@ export const HeaderStyled = styled.header`
   justify-content: space-around;
   align-items: center;
   gap: 10px;
-  padding: 10px;
   background-color: #07c17e;
   color: white;
+  width: 100%;
 
   div {
     display: flex;

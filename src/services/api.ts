@@ -13,3 +13,11 @@ export const Options = {
     "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
   },
 };
+
+export const Params = {
+  league: Number(localStorage.getItem("leagueId")),
+  team: Number(localStorage.getItem("idTeam")),
+  season: Number(localStorage.getItem("idSeanson")),
+  search: "",
+  page: 1,
+};

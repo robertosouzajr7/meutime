@@ -10,7 +10,7 @@ import CardLeagues from "../CardLeagues";
 import CardSeanson from "../CardSeanson";
 import CardTeams from "../CardTeams";
 import CardTeam from "../CardTeam";
-import { CardStyled } from "../../styles/card";
+import CardLineups from "../Cardlineups";
 
 function Main() {
   const {
@@ -21,11 +21,11 @@ function Main() {
     showTeams,
     showSeasion,
     showTeam,
+    showScore,
   } = useContext(UserContext);
 
   return (
     <>
-      <Header />
       <MainStayled>
         <DivStayled>
           {isLoged === true ? null : <CardLogin />}
@@ -37,6 +37,7 @@ function Main() {
         </DivStayled>
         <section className="section">
           {showPlayer === true ? <Cardplayers /> : null}
+          {showScore === true ? <CardLineups /> : null}
         </section>
       </MainStayled>
     </>

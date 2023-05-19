@@ -2,16 +2,17 @@ import "./App.css";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import GlobalStyle from "./styles/globalStyles";
-import Main from "./components/Main";
+import Dashboard from "./pages/Dashboard";
+import { AppStyled } from "./pages/Dashboard/style";
 
 function App() {
   return (
-    <div className="App">
+    <AppStyled>
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route path="/" element={<Dashboard />} />
       </Routes>
       <GlobalStyle />
-    </div>
+    </AppStyled>
   );
 }
 

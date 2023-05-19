@@ -2,19 +2,17 @@ import { styled } from "styled-components";
 
 export const MainStayled = styled.main`
   display: flex;
-  width: 100%;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background-color: #d9d9d9;
-  padding: 20px;
   gap: 10px;
   height: 100vh;
-
+  width: 100%;
+  padding-top: 20px;
   .section {
     display: flex;
-    width: 780px;
     justify-content: center;
     align-items: center;
     cursor: pointer;

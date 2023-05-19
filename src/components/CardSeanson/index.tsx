@@ -12,6 +12,7 @@ function CardSeanson() {
 
   const HandleTextSeanson = (event: ChangeEvent<HTMLSelectElement>) => {
     setYear(event.target.value);
+    localStorage.setItem("idSeanson", event.target.value);
   };
 
   return (

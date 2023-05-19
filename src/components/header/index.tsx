@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { HeaderStyled } from "./styles";
 import { GiSoccerBall } from "react-icons/gi";
+import { UserContext } from "../../providers/user.Context";
 
 function Header(data: any) {
+  const { GetStatistcs, setShowScore } = useContext(UserContext);
+  const Mostrar = () => {
+    setShowScore(true);
+    GetStatistcs();
+  };
   return (
     <HeaderStyled>
       <div>
@@ -11,13 +17,15 @@ function Header(data: any) {
       </div>
       <ul>
         <li>
-          <a href="#">Meu Time</a>
+          <a href="">Meu Time</a>
         </li>
         <li>
           <a href="#">Jogadores</a>
         </li>
         <li>
-          <a href="#">Statisticas</a>
+          <a href="#" onClick={Mostrar}>
+            Statisticas
+          </a>
         </li>
       </ul>
     </HeaderStyled>
