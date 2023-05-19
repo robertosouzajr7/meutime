@@ -1,25 +1,45 @@
 import React from "react";
-import { DivStayled, LogoStyled, MainStayled } from "./style";
-import { CardSelectStyled } from "../CardSelect/styles";
-import { useState, useContext } from "react";
+import { DivStayled, MainStayled } from "./style";
+import { useContext } from "react";
 import CardSelect from "../CardSelect";
 import CardLogin from "../CardLogin";
-import { GiSoccerBall } from "react-icons/gi";
 import { UserContext } from "../../providers/user.Context";
+import Cardplayers from "../CardPlayers";
+import Header from "../header";
+import CardLeagues from "../CardLeagues";
+import CardSeanson from "../CardSeanson";
+import CardTeams from "../CardTeams";
+import CardTeam from "../CardTeam";
+import { CardStyled } from "../../styles/card";
 
 function Main() {
-  const [send, setSend] = useState(false);
-  const { isLoged } = useContext(UserContext);
+  const {
+    isLoged,
+    showPlayer,
+    showCountries,
+    showLeagues,
+    showTeams,
+    showSeasion,
+    showTeam,
+  } = useContext(UserContext);
 
   return (
-    <MainStayled>
-      <DivStayled>
-        <GiSoccerBall size={150} />
-        <h3>Meu Time</h3>
-        {isLoged === true ? null : <CardLogin children={null} />}
-        {isLoged === true ? <CardSelect children={null} /> : null}
-      </DivStayled>
-    </MainStayled>
+    <>
+      <Header />
+      <MainStayled>
+        <DivStayled>
+          {isLoged === true ? null : <CardLogin />}
+          {showCountries === true ? <CardSelect /> : null}
+          {showSeasion === true ? <CardSeanson /> : null}
+          {showLeagues === true ? <CardLeagues /> : null}
+          {showTeams === true ? <CardTeams /> : null}
+          {showTeam === true ? <CardTeam /> : null}
+        </DivStayled>
+        <section className="section">
+          {showPlayer === true ? <Cardplayers /> : null}
+        </section>
+      </MainStayled>
+    </>
   );
 }
 

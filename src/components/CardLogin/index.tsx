@@ -1,11 +1,9 @@
 import React from "react";
 import { ChangeEvent, useContext } from "react";
-import { CardSelectStyled } from "../CardSelect/styles";
-import { iChildren } from "../../interfaces";
 import { InputStyled } from "./styles";
-import { ButtonStyled } from "../Button/styles";
 import { UserContext } from "../../providers/user.Context";
-function CardLogin(children: iChildren) {
+import { CardStyled, ButtonStyled } from "../../styles/card";
+function CardLogin() {
   const { HandleLogin, token, setToken } = useContext(UserContext);
 
   const handleApiKey = (api: ChangeEvent<HTMLInputElement>) => {
@@ -14,7 +12,6 @@ function CardLogin(children: iChildren) {
     HandleLogin(token);
     console.log(token); */
     const token = api.target.value;
-    console.log(token);
     setToken(token);
     localStorage.setItem("token", token);
   };
@@ -22,7 +19,7 @@ function CardLogin(children: iChildren) {
   return (
     <>
       <label htmlFor="Login">Insira sua API KEY para fazer Login</label>
-      <CardSelectStyled>
+      <CardStyled>
         <InputStyled
           type="text"
           id="Login"
@@ -30,7 +27,7 @@ function CardLogin(children: iChildren) {
           placeholder="insira sua Api Key"
           onChange={handleApiKey}
         />
-      </CardSelectStyled>
+      </CardStyled>
       <ButtonStyled onClick={() => HandleLogin()}>Fazer Login</ButtonStyled>
       <p>
         Não possui conta?
