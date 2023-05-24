@@ -132,7 +132,6 @@ export const UserProvider = ({ children }: iChildren) => {
     const getSeanson: any = leagues.find(
       (ele) => ele.league.name === textLeague
     );
-    console.log(getSeanson.league);
     setShowLeagues(false);
     setShowSeasion(true);
     localStorage.setItem("seansonId", textLeague);
@@ -151,7 +150,6 @@ export const UserProvider = ({ children }: iChildren) => {
         setShowSeasion(false);
         setShowTeams(true);
         setTeams(response.data.response);
-        console.log(response.data.response);
       })
       .catch((err) => {
         console.log(err);
@@ -171,7 +169,6 @@ export const UserProvider = ({ children }: iChildren) => {
     const params = localStorage.getItem("idTeam");
     await Api.get(`/players/squads?team=${params}`, Options)
       .then((response) => {
-        console.log(response.data.response);
         setSquad(response.data.response);
         setShowPlayer(true);
       })
@@ -185,7 +182,6 @@ export const UserProvider = ({ children }: iChildren) => {
       Options
     )
       .then((response) => {
-        console.log(response.data.response);
         setShowPlayer(false);
         setStatistics(response.data.response);
       })

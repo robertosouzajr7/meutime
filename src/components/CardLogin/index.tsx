@@ -7,10 +7,6 @@ function CardLogin() {
   const { HandleLogin, token, setToken } = useContext(UserContext);
 
   const handleApiKey = (api: ChangeEvent<HTMLInputElement>) => {
-    /* setToken(api.target.value);
-    localStorage.setItem("token", api.target.value);
-    HandleLogin(token);
-    console.log(token); */
     const token = api.target.value;
     setToken(token);
     localStorage.setItem("token", token);

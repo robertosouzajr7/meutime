@@ -4,9 +4,7 @@ import { CardStyled } from "../../styles/card";
 import Chart from "react-apexcharts";
 function CardLineups() {
   const { statistics } = useContext(UserContext);
-
   const { fixtures, goals, lineups } = statistics;
-
   useEffect(() => {
     console.log(statistics.lineups);
   }, []);
