@@ -187,7 +187,6 @@ export const UserProvider = ({ children }: iChildren) => {
       .then((response) => {
         console.log(response.data.response);
         setShowPlayer(false);
-        setShowScore(true);
         setStatistics(response.data.response);
       })
       .catch((err) => console.error(err));

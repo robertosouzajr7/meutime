@@ -3,15 +3,60 @@ import { styled } from "styled-components";
 export const CardStyled = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   max-width: 780px;
   width: 100%;
+  min-width: 320px;
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 320px) {
+    table {
+      width: 320px;
+    }
+  }
+
+  table,
+  th,
+  td {
+    border: 1px solid black;
+  }
+
+  table {
+    border-collapse: collapse;
+    margin: auto;
+  }
+
+  th,
+  td {
+    padding: 10px;
+    text-align: center;
+    width: 120px;
+  }
+
+  th {
+    font-weight: bold;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dcebe6;
+  }
+
+  tr:hover:nth-child(1n + 2) {
+    background-color: #085f63;
+    color: #fff;
+  }
 
   .ulPlayers {
     display: flex;
+    width: 100%;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 10px;
-    width: 100%;
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
     cursor: pointer;
@@ -74,7 +119,8 @@ export const CardStyled = styled.div`
 export const ButtonStyled = styled.button`
   max-width: 418px;
   width: 100%;
-  height: 50px;
+  min-width: 70px;
+  height: 30px;
   background-color: white;
   color: green;
   font-weight: bold;

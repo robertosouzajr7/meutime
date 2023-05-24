@@ -1,32 +1,34 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { HeaderStyled } from "./styles";
 import { GiSoccerBall } from "react-icons/gi";
 import { UserContext } from "../../providers/user.Context";
+import { ButtonStyled } from "../../styles/card";
 
 function Header(data: any) {
-  const { GetStatistcs, setShowScore } = useContext(UserContext);
+  const { setIsged, setShowPlayer, isLoged, setShowTeam } =
+    useContext(UserContext);
+
   const Mostrar = () => {
-    setShowScore(true);
-    GetStatistcs();
+    setIsged(false);
+    setShowPlayer(false);
+    setShowTeam(false);
   };
   return (
     <HeaderStyled>
       <div>
         <GiSoccerBall size={50} />
-        <h2>Meu Time {data.time}</h2>
+        <h2>Meu Time</h2>
       </div>
       <ul>
-        <li>
-          <a href="">Meu Time</a>
-        </li>
-        <li>
-          <a href="#">Jogadores</a>
-        </li>
-        <li>
-          <a href="#" onClick={Mostrar}>
-            Statisticas
-          </a>
-        </li>
+        {isLoged ? (
+          <li>
+            <ButtonStyled type="button" onClick={Mostrar}>
+              Sair
+            </ButtonStyled>
+          </li>
+        ) : (
+          <li></li>
+        )}
       </ul>
     </HeaderStyled>
   );

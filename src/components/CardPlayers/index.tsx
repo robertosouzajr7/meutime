@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../providers/user.Context";
-import { CardStyled } from "../../styles/card";
+import { ButtonStyled, CardStyled } from "../../styles/card";
+import CardLineups from "../Cardlineups";
 
 function Cardplayers() {
   const { squad } = useContext(UserContext);
@@ -23,6 +24,7 @@ function Cardplayers() {
           ))}
         </ul>
       ) : null}
+      <CardLineups />
     </CardStyled>
   );
 }

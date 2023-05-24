@@ -1,11 +1,14 @@
 import React from "react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "../../providers/user.Context";
 import { CardStyled, ButtonStyled } from "../../styles/card";
 import { LogoStyled } from "../Main/style";
 
 function CardTeam() {
-  const { team, getPlayes } = useContext(UserContext);
+  const { team, getPlayes, GetStatistcs } = useContext(UserContext);
+  useEffect(() => {
+    GetStatistcs();
+  }, []);
 
   return (
     <CardStyled>
@@ -22,7 +25,7 @@ function CardTeam() {
           </ul>
         </>
       ) : null}
-      <ButtonStyled onClick={() => getPlayes()}>ver jogadores</ButtonStyled>
+      <ButtonStyled onClick={() => getPlayes()}>Ver time</ButtonStyled>
     </CardStyled>
   );
 }

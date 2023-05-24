@@ -11,6 +11,7 @@ import CardSeanson from "../CardSeanson";
 import CardTeams from "../CardTeams";
 import CardTeam from "../CardTeam";
 import CardLineups from "../Cardlineups";
+import { ButtonStyled } from "../../styles/card";
 
 function Main() {
   const {
@@ -21,7 +22,6 @@ function Main() {
     showTeams,
     showSeasion,
     showTeam,
-    showScore,
   } = useContext(UserContext);
 
   return (
@@ -37,7 +37,6 @@ function Main() {
         </DivStayled>
         <section className="section">
           {showPlayer === true ? <Cardplayers /> : null}
-          {showScore === true ? <CardLineups /> : null}
         </section>
       </MainStayled>
     </>

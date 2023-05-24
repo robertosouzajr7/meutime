@@ -1,16 +1,13 @@
 import { styled } from "styled-components";
-
 export const MainStayled = styled.main`
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
-  background-color: #d9d9d9;
+  background-image: url("././assets/bg-futebol.jpg");
   gap: 10px;
-  height: 100vh;
   width: 100%;
-  padding-top: 20px;
+  height: 100vh;
   .section {
     display: flex;
     justify-content: center;
@@ -23,7 +20,6 @@ export const DivStayled = styled.div`
   display: flex;
   max-width: 420px;
   background-color: #07c17e;
-  width: 100%;
   flex-direction: column;
   border-radius: 15px;
   gap: 5px;

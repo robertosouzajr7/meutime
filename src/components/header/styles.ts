@@ -3,12 +3,18 @@ import { styled } from "styled-components";
 export const HeaderStyled = styled.header`
   display: flex;
   height: 70px;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   gap: 10px;
   background-color: #07c17e;
   color: white;
   width: 100%;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
 
   div {
     display: flex;

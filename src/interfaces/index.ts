@@ -81,6 +81,11 @@ export interface iLeague {
 }
 
 export interface iFixtures {
+  draws: {
+    home: number;
+    away: number;
+    total: number;
+  };
   played: {
     home: number;
     away: number;
@@ -117,40 +122,51 @@ export interface iStatistc {
         total: string;
       };
 
-      minute: {
-        "0-15": {
-          total: number;
-          percentage: number;
-        };
-        "16-30": {
-          total: number;
-          percentage: number;
-        };
-        "31-45": {
-          total: number;
-          percentage: number;
-        };
-        "46-60": {
-          total: number;
-          percentage: number;
-        };
-        "61-75": {
-          total: number;
-          percentage: number;
-        };
-        "76-90": {
-          total: number;
-          percentage: number;
-        };
-        "91-105": {
-          total: number;
-          percentage: number;
-        };
-        "106-120": {
-          total: number;
-          percentage: number;
-        };
-      };
+      minute: [
+        { "0-15": { total: number; percentage: number } },
+        {
+          "16-30": {
+            total: number;
+            percentage: number;
+          };
+        },
+        {
+          "31-45": {
+            total: number;
+            percentage: number;
+          };
+        },
+        {
+          "46-60": {
+            total: number;
+            percentage: number;
+          };
+        },
+        {
+          "61-75": {
+            total: number;
+            percentage: number;
+          };
+        },
+        {
+          "76-90": {
+            total: number;
+            percentage: number;
+          };
+        },
+        {
+          "91-105": {
+            total: number;
+            percentage: number;
+          };
+        },
+        {
+          "106-120": {
+            total: number;
+            percentage: number;
+          };
+        }
+      ];
     };
     against: {
       total: {
@@ -201,10 +217,29 @@ export interface iStatistc {
     };
   };
   biggest: {
-    streak: {};
-    wins: {};
-    loses: {};
-    goals: {};
+    streak: {
+      draws: number;
+      loses: number;
+      wins: number;
+    };
+    wins: {
+      away: string;
+      home: string;
+    };
+    loses: {
+      away: string;
+      home: string;
+    };
+    goals: {
+      against: {
+        away: number;
+        home: number;
+      };
+      for: {
+        away: number;
+        home: number;
+      };
+    };
   };
   clean_sheet: {};
   failed_to_score: {};
