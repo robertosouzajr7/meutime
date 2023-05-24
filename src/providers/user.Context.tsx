@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useState } from "react";
 import {
   iChildren,
   iCountrie,
@@ -94,7 +94,13 @@ export const UserProvider = ({ children }: iChildren) => {
   const [statistics, setStatistics] = useState<iStatistc>({} as iStatistc);
 
   const HandleLogin = async () => {
-    await Api.get(`/countries`, Options)
+    const token = localStorage.getItem("token");
+    await Api.get(`/countries`, {
+      headers: {
+        "X-RapidAPI-Key": token,
+        "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
+      },
+    })
       .then((res) => {
         setIsged(true);
         setShowCountries(true);
