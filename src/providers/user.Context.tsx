@@ -169,6 +169,7 @@ export const UserProvider = ({ children }: iChildren) => {
     localStorage.setItem("idTeam", String(getTeam?.team.id));
     setShowTeam(true);
     setShowTeams(false);
+    GetStatistcs();
   };
 
   const getPlayes = async () => {

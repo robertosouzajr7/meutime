@@ -6,9 +6,6 @@ import { LogoStyled } from "../Main/style";
 
 function CardTeam() {
   const { team, getPlayes, GetStatistcs } = useContext(UserContext);
-  useEffect(() => {
-    GetStatistcs();
-  }, []);
 
   return (
     <CardStyled>
@@ -17,8 +14,8 @@ function CardTeam() {
           <figure>
             <LogoStyled src={team.logo} />
           </figure>
+          <h2>{team.name}</h2>
           <ul style={{ alignItems: "flex-start" }}>
-            <caption>{team.name}</caption>
             <li>País: {team.country}</li>
             <li>Fundado em: {team.founded}</li>
             <li>Código: {team.code}</li>

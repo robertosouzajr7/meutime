@@ -5,11 +5,7 @@ import Chart from "react-apexcharts";
 function CardLineups() {
   const { statistics } = useContext(UserContext);
   const { fixtures, goals, lineups } = statistics;
-  useEffect(() => {
-    console.log(statistics.lineups);
-  }, []);
-
-  const played = lineups.map((item: any) => item.played);
+  const played = statistics.lineups.map((item: any) => item.played);
   const max = played.reduce(function (a, b) {
     return Math.max(a, b);
   }, -Infinity);
@@ -32,24 +28,24 @@ function CardLineups() {
       name: "Gols Marcados",
       type: "line",
       data: [
-        minute["0-15"].total,
-        minute["16-30"].total,
-        minute["31-45"].total,
-        minute["46-60"].total,
-        minute["61-75"].total,
-        minute["76-90"].total,
+        statistics.goals.against.minute["0-15"].total,
+        statistics.goals.against.minute["16-30"].total,
+        statistics.goals.against.minute["31-45"].total,
+        statistics.goals.against.minute["46-60"].total,
+        statistics.goals.against.minute["61-75"].total,
+        statistics.goals.against.minute["76-90"].total,
       ],
     },
     {
       name: "% Tempo de Jogo",
       type: "column",
       data: [
-        minute["0-15"].percentage,
-        minute["16-30"].percentage,
-        minute["31-45"].percentage,
-        minute["46-60"].percentage,
-        minute["61-75"].percentage,
-        minute["76-90"].percentage,
+        statistics.goals.against.minute["0-15"].percentage,
+        statistics.goals.against.minute["16-30"].percentage,
+        statistics.goals.against.minute["31-45"].percentage,
+        statistics.goals.against.minute["46-60"].percentage,
+        statistics.goals.against.minute["61-75"].percentage,
+        statistics.goals.against.minute["76-90"].percentage,
       ],
     },
   ];
@@ -58,12 +54,10 @@ function CardLineups() {
     <CardStyled>
       <h2>Estatísticas:</h2>
       <table className="table__campanha">
-        <thead>
-          <th>Campanha</th>
-          <th>Em casa</th>
-          <th>Fora</th>
-          <th>Total</th>
-        </thead>
+        <th>Campanha</th>
+        <th>Em casa</th>
+        <th>Fora</th>
+        <th>Total</th>
         <tbody>
           <tr>
             <td>Jogos</td>
@@ -121,12 +115,10 @@ function CardLineups() {
       </table>
       <div>
         <table className="table__formation">
-          <thead>
-            <th>Esquema Tático</th>
-            <th>Formação</th>
-            <th>Jogos</th>
-            <th></th>
-          </thead>
+          <th>Esquema Tático</th>
+          <th>Formação</th>
+          <th>Jogos</th>
+          <th></th>
           <tbody>
             {formation.map((formacao: any) => (
               <tr>

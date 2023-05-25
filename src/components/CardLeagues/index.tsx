@@ -25,10 +25,10 @@ function CardLeagues() {
                 value={league?.name}
                 onChange={HandleTextLeague}
               >
-                <option selected={true}>Selecionar</option>
+                <option value={league.name}>Selecionar</option>
                 {leagues.map((league) => (
-                  <option value={league.league.name}>
-                    <p>{league.league.name}</p>
+                  <option key={league.league.id} value={league.league.name}>
+                    {league.league.name}
                   </option>
                 ))}
               </select>

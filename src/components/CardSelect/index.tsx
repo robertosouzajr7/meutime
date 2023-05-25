@@ -21,7 +21,7 @@ function CardSelect() {
             <label htmlFor="list">
               Selecione um País
               <select id="list" value={country?.name} onChange={HandleText}>
-                <option selected={true}>Selecionar</option>
+                <option value={country.name}>Selecionar</option>
                 {countries.map((country: iCountrie, index) => (
                   <option key={index} value={country.name}>
                     {country.name} | {country.code}

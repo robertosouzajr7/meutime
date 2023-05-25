@@ -23,9 +23,11 @@ function CardTeams() {
             <label htmlFor="team">
               Times
               <select id="team" value={team?.name} onChange={HandleTextTeam}>
-                <option selected={true}>Selecionar</option>
+                <option value={team.name}>Selecionar</option>
                 {teams.map((team) => (
-                  <option value={team.team.name}>{team.team.name}</option>
+                  <option key={team.team.id} value={team.team.name}>
+                    {team.team.name}
+                  </option>
                 ))}
               </select>
             </label>

@@ -23,9 +23,11 @@ function CardSeanson() {
             <label htmlFor="seasons">
               Selecione uma Temporada
               <select id="seasons" value={year} onChange={HandleTextSeanson}>
-                <option selected={true}>Selecionar</option>
-                {seanson.map((data) => (
-                  <option>{data.year}</option>
+                <option value={year}>Selecionar</option>
+                {seanson.map((data, id) => (
+                  <option value={data.year} key={id}>
+                    {data.year}
+                  </option>
                 ))}
               </select>
             </label>
