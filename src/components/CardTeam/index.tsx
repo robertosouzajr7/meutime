@@ -5,7 +5,7 @@ import { CardStyled, ButtonStyled } from "../../styles/card";
 import { LogoStyled } from "../Main/style";
 
 function CardTeam() {
-  const { team, getPlayes, GetStatistcs } = useContext(UserContext);
+  const { team, getPlayes } = useContext(UserContext);
 
   return (
     <CardStyled>

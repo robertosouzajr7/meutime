@@ -112,7 +112,12 @@ export const UserProvider = ({ children }: iChildren) => {
   };
 
   const Getleague = async () => {
-    await Api.get(`/leagues?country=${county}`, Options)
+    await Api.get(`/leagues?country=${county}`, {
+      headers: {
+        "X-RapidAPI-Key": token,
+        "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
+      },
+    })
       .then((res) => {
         setLeagues(res.data.response);
         setShowCountries(false);
@@ -125,7 +130,12 @@ export const UserProvider = ({ children }: iChildren) => {
   };
 
   const GetCountries = async () => {
-    await Api.get(`/countries`, Options)
+    await Api.get(`/countries`, {
+      headers: {
+        "X-RapidAPI-Key": token,
+        "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
+      },
+    })
       .then((res) => {
         setCountries(res.data.response);
       })
@@ -151,7 +161,12 @@ export const UserProvider = ({ children }: iChildren) => {
       "leagueId"
     )}&season=${year}&country=${localStorage.getItem("countryName")}`;
     console.log(params);
-    await Api.get(`/teams/${params}`, Options)
+    await Api.get(`/teams/${params}`, {
+      headers: {
+        "X-RapidAPI-Key": token,
+        "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
+      },
+    })
       .then((response) => {
         setShowSeasion(false);
         setShowTeams(true);
@@ -174,7 +189,12 @@ export const UserProvider = ({ children }: iChildren) => {
 
   const getPlayes = async () => {
     const params = localStorage.getItem("idTeam");
-    await Api.get(`/players/squads?team=${params}`, Options)
+    await Api.get(`/players/squads?team=${params}`, {
+      headers: {
+        "X-RapidAPI-Key": token,
+        "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
+      },
+    })
       .then((response) => {
         setSquad(response.data.response);
         setShowPlayer(true);
@@ -186,7 +206,12 @@ export const UserProvider = ({ children }: iChildren) => {
     const { league, season, team } = Params;
     await Api.get(
       `/teams/statistics?season=${season}&team=${team}&league=${league}`,
-      Options
+      {
+        headers: {
+          "X-RapidAPI-Key": token,
+          "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
+        },
+      }
     )
       .then((response) => {
         setShowPlayer(false);
